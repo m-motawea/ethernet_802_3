@@ -10,7 +10,8 @@ import (
 )
 
 type Length uint16
-type FCS uint32
+
+// type FCS uint32
 
 type Frame struct {
 	Destination net.HardwareAddr
@@ -19,7 +20,7 @@ type Frame struct {
 	LLC         llc.LLCPDU
 	SNAP        snap.SNAP // exist only if DSAP / SSAP = 0xAAAA. (llc.LSAPSNAPExtension)
 	Data        []byte    // 46 - 1500
-	FCS         FCS
+	// FCS         FCS
 }
 
 func (f *Frame) Len() int {
